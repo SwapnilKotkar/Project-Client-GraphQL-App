@@ -28,7 +28,7 @@ const Clients = () => {
   return (
     <>
       {!loading && !error && (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto px-6 pt-6">
           <table className="w-1/3 divide-y divide-gray-200 text-sm">
             <thead className="bg-gray-100">
               <tr>
