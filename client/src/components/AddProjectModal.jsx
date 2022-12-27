@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaList } from "react-icons/fa";
 import { useMutation, useQuery } from "@apollo/client";
 
 import { ADD_PROJECT } from "../mutations/projectMutations";
@@ -36,6 +35,8 @@ const AddProjectModal = () => {
     e.preventDefault();
 
     addProject(name, description, clientID, status);
+
+    setOpen(false);
 
     clear();
   };
@@ -93,7 +94,8 @@ const AddProjectModal = () => {
                     <label className="sr-only" htmlFor="email">
                       Description
                     </label>
-                    <input
+                    <textarea
+                    rows={4}
                       className="w-full rounded-lg bg-gray-50 border border-gray-200 p-3 text-sm"
                       placeholder="Description"
                       type="description"

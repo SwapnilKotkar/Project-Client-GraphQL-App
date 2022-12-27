@@ -32,6 +32,8 @@ const AddClientModal = () => {
 
     addClient(name, email, phone);
 
+    setOpen(false);
+
     clear();
   };
 
@@ -115,7 +117,10 @@ const AddClientModal = () => {
                   type="submit"
                   className="inline-flex w-full items-center justify-center rounded-lg bg-[#e535ab] px-4 py-2 text-white sm:w-auto"
                 >
-                  <span className="font-medium text-sm px-3 py-1"> Add Client </span>
+                  <span className="font-medium text-sm px-3 py-1">
+                    {" "}
+                    Add Client{" "}
+                  </span>
                 </button>
                 <div
                   onClick={clear}
