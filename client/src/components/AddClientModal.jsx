@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaUser } from "react-icons/fa";
 import { useMutation } from "@apollo/client";
 
 import { ADD_CLIENT } from "../mutations/clientMutations";
@@ -54,13 +53,13 @@ const AddClientModal = () => {
     <div className="px-6">
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="bg-[#e535ab] mb-4 px-4 py-2 rounded-md shadow-md text-white font-semibold"
+        className="bg-[#e535ab] mb-4 px-6 py-3 rounded-md shadow-md text-white font-semibold text-sm"
       >
         Add Client
       </button>
       {open && (
         <div className="w-full">
-          <div className="w-1/3 rounded-lg bg-white p-3 border border-gray-200 shadow-lg lg:col-span-3 lg:p-7">
+          <div className="md:w-1/2 lg:w-1/3 rounded-lg bg-white p-3 border border-gray-200 shadow-lg lg:col-span-3 lg:p-7 mb-4">
             <form action="" className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label className="sr-only" htmlFor="name">
@@ -116,13 +115,13 @@ const AddClientModal = () => {
                   type="submit"
                   className="inline-flex w-full items-center justify-center rounded-lg bg-[#e535ab] px-4 py-2 text-white sm:w-auto"
                 >
-                  <span className="font-medium"> Add Client </span>
+                  <span className="font-medium text-sm px-3 py-1"> Add Client </span>
                 </button>
                 <div
                   onClick={clear}
                   className="inline-flex w-full items-center justify-center rounded-lg text-[#e535ab] border border-[#e535ab] px-4 py-2 sm:w-auto cursor-pointer"
                 >
-                  <span className="font-medium"> Clear </span>
+                  <span className="font-medium text-sm px-3 py-1"> Clear </span>
                 </div>
               </div>
             </form>

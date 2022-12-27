@@ -1,9 +1,11 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import Header from "./components/Header";
 
-import Clients from "./components/Clients";
-import AddClientModal from "./components/AddClientModal";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
+import Project from "./pages/Project";
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -33,11 +35,16 @@ const App = () => {
   return (
     <>
       <ApolloProvider client={client}>
-        <Header />
-        <div>
-          <AddClientModal />
-          <Clients />
-        </div>
+        <Router>
+          <Header />
+          <div>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/project/:id" element={<Project />} />
+              <Route path="*" element={<Error />} />
+            </Routes>
+          </div>
+        </Router>
       </ApolloProvider>
     </>
   );

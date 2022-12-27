@@ -3,32 +3,20 @@ import { useQuery } from "@apollo/client";
 
 import ClientRow from "./ClientRow";
 import { GET_CLIENTS } from "../queries/clientQueries";
+import Spinner from "./Spinner";
 
 const Clients = () => {
   const { loading, error, data } = useQuery(GET_CLIENTS);
 
-  if (loading)
-    return (
-     <div className="w-full flex justify-center">
-         <div className='lds-roller'>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-     </div>
-    );
+  if (loading) return <Spinner />;
 
   if (error) return <p>Error: Something went wrong...</p>;
 
   return (
-    <>
+    <div className="mx-6 my-3">
+      <h2 className="mb-4 text-2xl font-semibold">Clients</h2>
       {!loading && !error && (
-        <div className="overflow-x-auto px-6 pt-6">
+        <div className="overflow-x-auto">
           <table className="w-1/3 divide-y divide-gray-200 text-sm">
             <thead className="bg-gray-100">
               <tr>
@@ -55,7 +43,7 @@ const Clients = () => {
           </table>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
